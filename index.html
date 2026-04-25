@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <title>СПЕЦТЕХНИК - Ремонт квадроциклов, снегоходов, лодок и спецтехники в Томске</title>
+    <meta name="description" content="ООО СПЕЦТЕХНИК - профессиональный ремонт и сервисное обслуживание спецтехники в Томске. Квадроциклы, снегоходы, вездеходы, моторные лодки, газонокосилки. Бесплатная диагностика, выезд мастера.">
+    <meta name="keywords" content="ремонт квадроциклов Томск, ремонт снегоходов, сервис лодочных моторов, ремонт вездеходов, заточка газонокосилок, СПЕЦТЕХНИК, мотосервис Томск, ремонт спецтехники, диагностика двигателей">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="frontend/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="frontend/images/favicon-16x16.png">
+    <link rel="shortcut icon" href="frontend/images/favicon.jpg">
+    <link rel="apple-touch-icon" sizes="180x180" href="frontend/images/apple-touch-icon.png">
+
+    <!-- Шрифты -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=Manrope:wght@400;500;600;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- CSS стили -->
+    <link rel="stylesheet" href="frontend/styles.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+
+<body>
+    <!-- Переключатель темы -->
+    <div class="theme-toggle">
+        <button id="themeToggleBtn" class="theme-toggle-btn">
+            <i class="fas fa-sun sun-icon"></i>
+            <span>Тёмная тема</span>
+            <i class="fas fa-moon moon-icon"></i>
+        </button>
+    </div>
+    <div class="page">
+
+        <!-- ШАПКА: ООО «СПЕЦТЕХНИК» -->
+        <div class="company-header animate-up delay-1">
+            <div class="header-top">
+                <div class="logo-title">
+                    <img src="images/logo.jpg" alt="Логотип СПЕЦТЕХНИК"
+                        onerror="this.onerror=null; this.src='https://via.placeholder.com/1200x200/2C3E50/FFFFFF?text=СПЕЦТЕХНИК'">
+                </div>
+                <div class="header-slogan">
+                    <p>Чтобы техника не подвела, когда вы готовы к приключениям</p>
+                </div>
+            </div>
+
+            <!-- Контактный блок под логотипом -->
+            <div class="contact-block animate-scale delay-2">
+                <div class="contact-item"><i class="fas fa-map-pin"></i> Томск, ул. Мостовая, 12 ст3</div>
+                <div class="contact-item"><i class="fas fa-phone-alt"></i> 8 (3822) 32-03-03</div>
+                <div class="contact-item"><i class="fas fa-envelope"></i> spectechnik70@mail.ru</div>
+            </div>
+        </div>
+
+        <!-- ОСНОВНЫЕ ПРИНЦИПЫ -->
+        <div class="principles animate-up delay-2">
+            <h2><i class="fas fa-gear water-icon"></i> Основные принципы</h2>
+            <div class="grid-principles">
+                <div class="principle-card">
+                    <i class="fas fa-trophy water-icon"></i>
+                    <p>В ремонте и обслуживании техники мы гарантируем качество, которое обеспечивает долгую и беспроблемную работу вашего оборудования.</p>
+                </div>
+                <div class="principle-card">
+                    <i class="fas fa-user-check water-icon"></i>
+                    <p>Владелец техники — наш партнер. Мы ценим ваше время и стремимся вернуть исправную машину в кратчайшие сроки.</p>
+                </div>
+                <div class="principle-card">
+                    <i class="fas fa-handshake water-icon"></i>
+                    <p>Честность и прозрачность в работе. Мы подробно консультируем, согласовываем каждый этап и несем ответственность за результат.</p>
+                </div>
+                <div class="principle-card">
+                    <i class="fas fa-comments water-icon"></i>
+                    <p>Открытость к диалогу. Наши мастера всегда готовы объяснить причину поломки и дать рекомендации по эксплуатации.</p>
+                </div>
+            </div>
+            <div class="small-note">
+                <i class="fas fa-screwdriver-wrench gas-icon"></i> <strong>Мастер — золотые руки:</strong> создает условия для точной диагностики и качественного ремонта. Возвращаем технику в строй по честной цене и в оговоренные сроки.
+            </div>
+            <div class="complex-note">
+                <i class="fas fa-check-circle gas-icon"></i> <strong>Комплексное обслуживание «под ключ»:</strong> Мы берем на себя поиск запчастей, дефектовку, ремонт двигателя и ходовой. Вам не нужно искать разных специалистов — мы сделаем всё сами.
+            </div>
+        </div>
+
+        <!-- ПРЕИМУЩЕСТВА -->
+        <div class="section-title animate-slide delay-1">
+            <i class="fas fa-star water-icon"></i> Почему выбирают «СПЕЦТЕХНИК»?
+        </div>
+        <div class="advantages-grid">
+            <div class="advantage-card animate-scale delay-1">
+                <div class="advantage-icon"><i class="fas fa-file-contract water-icon"></i></div>
+                <h4>Гарантия на работы</h4>
+                <p>Официальная гарантия на все виды ремонтных работ и установленные запасные части.</p>
+            </div>
+            <div class="advantage-card animate-scale delay-2">
+                <div class="advantage-icon"><i class="fas fa-id-card water-icon"></i></div>
+                <h4>Сертифицированные мастера</h4>
+                <p>Специалисты с многолетним опытом работы с двигателями внутреннего сгорания, трансмиссиями и гидравликой.</p>
+            </div>
+            <div class="advantage-card animate-scale delay-3">
+                <div class="advantage-icon"><i class="fas fa-tools water-icon"></i></div>
+                <h4>Выездной ремонт</h4>
+                <p>Оперативный выезд мастера для диагностики и срочного ремонта крупногабаритной техники на месте.</p>
+            </div>
+            <div class="advantage-card animate-scale delay-4">
+                <div class="advantage-icon"><i class="fas fa-clock water-icon"></i></div>
+                <h4>Срочный ремонт</h4>
+                <p>Понимаем, что техника нужна в сезон. Выполняем срочные заказы без потери качества.</p>
+            </div>
+            <div class="advantage-card animate-scale delay-5">
+                <div class="advantage-icon"><i class="fas fa-hand-holding-heart water-icon"></i></div>
+                <h4>Полное сопровождение</h4>
+                <p>От эвакуации техники с места поломки до обкатки после капитального ремонта двигателя.</p>
+            </div>
+            <div class="advantage-card animate-scale delay-6">
+                <div class="advantage-icon"><i class="fas fa-boxes water-icon"></i></div>
+                <h4>Склад запчастей</h4>
+                <p>Наличие расходников и оригинальных комплектующих для популярных моделей BRP, Polaris, Yamaha, Tohatsu.</p>
+            </div>
+        </div>
+
+        <!-- ДИАГНОСТИКА И ДЕФЕКТОВКА -->
+        <div class="section-title animate-slide delay-1">
+            <i class="fas fa-stethoscope water-icon"></i> Диагностика и дефектовка
+        </div>
+        <div class="services-grid animate-up delay-2">
+            <div class="service-item">
+                <div class="service-icon"><i class="fas fa-laptop-medical water-icon"></i></div>
+                <span class="badge gas-bg">электроника</span>
+                <ul>
+                    <li><i class="fas fa-chevron-right gas-icon"></i> Компьютерная диагностика двигателей и электронных систем</li>
+                    <li><i class="fas fa-chevron-right gas-icon"></i> Проверка топливной системы и форсунок</li>
+                    <li><i class="fas fa-chevron-right gas-icon"></i> Замер компрессии и проверка ЦПГ</li>
+                    <li><i class="fas fa-chevron-right gas-icon"></i> Поиск неисправностей зажигания и проводки</li>
+                    <li><i class="fas fa-chevron-right gas-icon"></i> Эндоскопия цилиндров без разборки мотора</li>
+                </ul>
+            </div>
+            <div class="service-item">
+                <div class="service-icon"><i class="fas fa-clipboard-list water-icon"></i></div>
+                <span class="badge gas-bg">регламент</span>
+                <ul>
+                    <li><i class="fas fa-chevron-right gas-icon"></i> Сезонное ТО (замена масел, фильтров, смазка узлов)</li>
+                    <li><i class="fas fa-chevron-right gas-icon"></i> Консервация и расконсервация техники на зиму/лето</li>
+                    <li><i class="fas fa-chevron-right gas-icon"></i> Регулировка клапанов и карбюратора</li>
+                    <li><i class="fas fa-chevron-right gas-icon"></i> Обслуживание подвески и ходовой части</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- РЕМОНТ ДВИГАТЕЛЕЙ И АГРЕГАТОВ -->
+        <div class="section-title animate-slide delay-2">
+            <i class="fas fa-engine water-icon"></i> Ремонт двигателей и агрегатов
+        </div>
+        <div class="services-grid">
+            <div class="service-item animate-scale delay-2">
+                <i class="fas fa-oil-can service-icon water-icon"></i>
+                <ul>
+                    <li><i class="fas fa-check-circle gas-icon"></i> Капитальный ремонт ДВС (расточка, гильзовка, шлифовка)</li>
+                    <li><i class="fas fa-check-circle gas-icon"></i> Ремонт и настройка лодочных моторов (2т/4т)</li>
+                    <li><i class="fas fa-check-circle gas-icon"></i> Восстановление редукторов и трансмиссий</li>
+                    <li><i class="fas fa-check-circle gas-icon"></i> Ремонт вариаторов и сцепления квадроциклов/снегоходов</li>
+                    <li><i class="fas fa-check-circle gas-icon"></i> Замена подшипников и сальников ходовой части</li>
+                </ul>
+            </div>
+            <div class="service-item animate-scale delay-3">
+                <i class="fas fa-water service-icon water-icon"></i>
+                <ul>
+                    <li><i class="fas fa-check-circle gas-icon"></i> Ремонт системы охлаждения лодочных моторов (помпа, термостат)</li>
+                    <li><i class="fas fa-check-circle gas-icon"></i> Сварочные работы (аргон, полуавтомат) по алюминию и нержавейке</li>
+                    <li><i class="fas fa-check-circle gas-icon"></i> Ремонт гребных винтов и валов</li>
+                    <li><i class="fas fa-check-circle gas-icon"></i> Шиномонтаж и балансировка колес квадроциклов</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ЦЕХ И ОБОРУДОВАНИЕ -->
+        <div class="lab-card animate-up delay-3">
+            <div class="lab-content">
+                <h3><i class="fas fa-warehouse gas-icon"></i> Ремонтный цех и оборудование</h3>
+                <p class="lab-subtitle">Современная техническая база для точного ремонта любой сложности.</p>
+                <ul class="lab-list">
+                    <li>
+                        <i class="fas fa-caret-right gas-icon"></i>
+                        <span>Специализированный инструмент для разборки/сборки двигателей BRP, Yamaha, Mercury.</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-caret-right gas-icon"></i>
+                        <span>Стенды для настройки топливной аппаратуры и проверки форсунок.</span>
+                    </li>
+                </ul>
+                <div class="lab-methods">
+                    <div class="equipment-icon method-icon">
+                        <i class="fas fa-microchip"></i>
+                        <p class="equipment-title">Дилерский сканер</p>
+                        <p>Диагностика ЭБУ</p>
+                    </div>
+                    <div class="equipment-icon method-icon">
+                        <i class="fas fa-wrench"></i>
+                        <p class="equipment-title">Слесарный цех</p>
+                        <p>Ремонт подвески</p>
+                    </div>
+                    <div class="equipment-icon">
+                        <i class="fas fa-fire"></i>
+                        <p class="equipment-title">Сварка</p>
+                        <p>Аргон и полуавтомат</p>
+                    </div>
+                    <div class="equipment-icon method-icon">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <p class="equipment-title">Стенд обкатки</p>
+                        <p>Проверка под нагрузкой</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ЭТАПЫ РАБОТ -->
+        <div class="section-title animate-slide delay-3">
+            <i class="fas fa-list-ol water-icon"></i> Этапы ремонта «под ключ»
+        </div>
+        <div class="steps-container">
+            <div class="step-item animate-up delay-1">
+                <div class="step-number gas-bg">1</div>
+                <div class="step-content">
+                    <h4><i class="fas fa-file-alt water-icon"></i> Приёмка и мойка</h4>
+                    <p>Оформление заказ-наряда, мойка агрегатов, первичный осмотр и составление плана работ.</p>
+                </div>
+            </div>
+            <div class="step-item animate-up delay-2">
+                <div class="step-number gas-bg">2</div>
+                <div class="step-content">
+                    <h4><i class="fas fa-magnifying-glass water-icon"></i> Дефектовка</h4>
+                    <p>Разборка узла, замеры деталей, согласование с заказчиком стоимости запчастей и объема работ.</p>
+                </div>
+            </div>
+            <div class="step-item animate-up delay-3">
+                <div class="step-number gas-bg">3</div>
+                <div class="step-content">
+                    <h4><i class="fas fa-screwdriver water-icon"></i> Ремонт и сборка</h4>
+                    <p>Замена изношенных деталей, ремонт узлов, сборка с соблюдением моментов затяжки и регулировок.</p>
+                </div>
+            </div>
+            <div class="step-item animate-up delay-4">
+                <div class="step-number gas-bg">4</div>
+                <div class="step-content">
+                    <h4><i class="fas fa-check-double water-icon"></i> Выдача техники</h4>
+                    <p>Контрольный запуск, проверка рабочих параметров, тест-драйв, выдача гарантийного талона.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ФОРМА ОБРАТНОЙ СВЯЗИ + ЯНДЕКС КАРТА -->
+        <div class="section-title animate-slide delay-4">
+            <i class="fas fa-paper-plane water-icon"></i> Оставьте заявку на ремонт
+        </div>
+
+        <div class="contact-with-map animate-up delay-5">
+            <!-- Левая колонка: форма -->
+            <div class="form-column">
+                <h3>Запись в сервис</h3>
+                <p>Опишите проблему или укажите желаемую услугу. Мастер перезвонит для уточнения деталей и записи в удобное время.</p>
+                
+                <form class="simple-form">
+                    <input type="text" placeholder="Ваше имя" required maxlength="25">
+                    <input type="tel" placeholder="Ваш телефон" required>
+                    <textarea placeholder="Марка техники, неисправность, пожелания" rows="3" maxlength="500"></textarea>
+                    <button type="submit" class="gas-bg"><i class="fas fa-paper-plane"></i> Отправить заявку</button>
+                </form>
+                
+                <div class="form-contacts">
+                    <p><i class="fas fa-phone-alt water-icon"></i> 8 (3822) 32-03-03</p>
+                    <p><i class="fas fa-envelope water-icon"></i> spectechnik70@mail.ru</p>
+                </div>
+            </div>
+            
+            <!-- Правая колонка: Яндекс Карта -->
+            <div class="map-column">
+                <h4><i class="fas fa-map-marker-alt gas-icon"></i> Мы на карте:</h4>
+                <div class="yandex-map-container">
+                    <iframe src="https://api-maps.yandex.ru/frame/v1/-/CPQdeJYX"
+                            width="100%" 
+                            height="320" 
+                            frameborder="0"
+                            allowfullscreen="true">
+                    </iframe>
+                </div>
+                <p class="map-address">
+                    <i class="fas fa-check-circle gas-icon"></i> 
+                    <strong>Адрес:</strong> г. Томск, ул. Мостовая, 12 ст3<br>
+                    <span>(ориентир - район Речного порта, удобный подъезд для техники)</span>
+                </p>
+            </div>
+        </div>
+
+        <!-- ФИНАЛЬНАЯ ЦИТАТА -->
+        <hr class="divider">
+        <div class="footer-bottom">
+            <span><i class="fas fa-motorcycle water-icon"></i> Полный цикл обслуживания мототехники и спецтехники</span>
+            <span class="footer-slogan"><i class="fas fa-heart gas-icon"></i> Чтобы техника не подвела в приключениях.</span>
+        </div>
+        <div class="footer-quote">
+            «Мы возвращаем технику к жизни. Чтобы техника не подвела, когда вы готовы к приключениям. СПЕЦТЕХНИК — возвращаем уверенность в каждой поездке.»
+        </div>
+        <div class="footer-copyright">
+            © 2026 «СПЕЦТЕХНИК». Все права защищены.
+        </div>
+    </div>
+    <!-- Кнопка "Наверх" -->
+    <button id="scrollToTopBtn" class="scroll-top-btn gas-bg" aria-label="Наверх">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    <!-- Подключение скриптов -->
+    <script src="backend/slider.js"></script>
+    <script src="backend/send-form.js"></script>
+    <script src="backend/scroll-to-top.js"></script>
+    <script src="backend/theme-toggle.js"></script>
+</body>
+
+</html>
