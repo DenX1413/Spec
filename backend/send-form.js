@@ -1,12 +1,6 @@
-// ========== ИНИЦИАЛИЗАЦИЯ EMAILJS ==========
-(function() {
-    // ЗАМЕНИТЕ НА ВАШ PUBLIC KEY ИЗ EMAILJS
-    emailjs.init("GhBGUsJO8m3kW80aa");
-})();
-
 // ========== МАСКА ТЕЛЕФОНА С ПРАВИЛЬНЫМ УДАЛЕНИЕМ ==========
 document.addEventListener('DOMContentLoaded', function() {
-    const phoneInput = document.querySelector('input[placeholder="Ваш телефон"]');
+    const phoneInput = document.querySelector('input[name="phone"]');
     
     if (phoneInput) {
         // Сохраняем позицию курсора
@@ -221,33 +215,24 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Показываем уведомление о начале отправки
             showNotification('⏳ Отправка...', 'info');
-            
-            // Получаем значения полей формы
-            const nameInput = document.querySelector('input[placeholder="Ваше имя"]');
-            const phoneInput = document.querySelector('input[placeholder="Ваш телефон"]');
-            const messageTextarea = document.querySelector('textarea[placeholder="Ваше сообщение (адрес, вопросы)"]');
-            
-            // Формируем данные для отправки
-            const formData = {
-                from_name: nameInput ? nameInput.value : 'Не указано',
-                from_phone: phoneInput ? phoneInput.value : 'Не указан',
-                message: messageTextarea ? messageTextarea.value : 'Без сообщения',
-                to_email: 'kokokolll123444@gmail.com', // Замените на вашу почту
-                site_name: 'ООО «Радиус»',
-                date: new Date().toLocaleString('ru-RU')
-            };
-            
-            // ЗАМЕНИТЕ НА ВАШИ ЗНАЧЕНИЯ ИЗ EMAILJS
-            const serviceId = 'service_3wsxozi';
-            const templateId = 'template_go0vbyw';
-            
-            // Отправка через EmailJS
-            emailjs.send(serviceId, templateId, formData)
+
+            // Отправка через FormSubmit
+            fetch(contactForm.action, {
+                method: 'POST',
+                headers: { 'Accept': 'application/json' },
+                body: new FormData(contactForm)
+            })
                 .then(function(response) {
-                    console.log('✅ Успешно отправлено!', response);
+                    if (!response.ok) {
+                        throw new Error('Request failed');
+                    }
+                    return response.json();
+                })
+                .then(function(data) {
+                    console.log('✅ Успешно отправлено!', data);
                     showNotification('✅ Заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.', 'success');
                     contactForm.reset(); // Очищаем форму после успешной отправки
-                    
+
                     // Сбрасываем счетчики
                     resetCounters();
                 })
@@ -262,7 +247,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // ========== ФУНКЦИЯ ДЛЯ ДОБАВЛЕНИЯ СЧЕТЧИКОВ ==========
 function addCharacterCounters() {
     // Счетчик для имени (макс 25 символов)
-    const nameInput = document.querySelector('input[placeholder="Ваше имя"]');
+    const nameInput = document.querySelector('input[name="name"]');
     if (nameInput) {
         nameInput.maxLength = 25;
         
@@ -288,7 +273,7 @@ function addCharacterCounters() {
     }
     
     // Счетчик для сообщения (макс 500 символов)
-    const messageInput = document.querySelector('textarea[placeholder="Ваше сообщение (адрес, вопросы)"]');
+    const messageInput = document.querySelector('textarea[name="message"]');
     if (messageInput) {
         messageInput.maxLength = 500;
         
@@ -325,9 +310,9 @@ function resetCounters() {
 
 // ========== ФУНКЦИЯ ВАЛИДАЦИИ ФОРМЫ ==========
 function validateForm() {
-    const nameInput = document.querySelector('input[placeholder="Ваше имя"]');
-    const phoneInput = document.querySelector('input[placeholder="Ваш телефон"]');
-    const messageInput = document.querySelector('textarea[placeholder="Ваше сообщение (адрес, вопросы)"]');
+    const nameInput = document.querySelector('input[name="name"]');
+    const phoneInput = document.querySelector('input[name="phone"]');
+    const messageInput = document.querySelector('textarea[name="message"]');
     
     // Проверка имени
     if (!nameInput || !nameInput.value.trim()) {
