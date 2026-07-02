@@ -5,12 +5,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const FADE_MS = 700;
 
+    function getFadeEl(video) {
+        // Прозрачность анимируем на обёртке, а не на самом <video> —
+        // так надёжнее работает во всех браузерах/движках рендеринга.
+        return video.closest('.video-bg-wrap') || video;
+    }
+
     function fadeIn(video) {
-        video.style.opacity = '1';
+        getFadeEl(video).style.opacity = '1';
     }
 
     function fadeOutThenPause(video) {
-        video.style.opacity = '0';
+        getFadeEl(video).style.opacity = '0';
         clearTimeout(video._pauseTimeout);
         video._pauseTimeout = setTimeout(function () {
             video.pause();
@@ -22,15 +28,30 @@ document.addEventListener('DOMContentLoaded', function () {
             const video = entry.target;
             if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
                 clearTimeout(video._pauseTimeout);
-                video.style.opacity = '0';
-                video.currentTime = 0;
-                video.play().catch(function () {});
-                // Двойной rAF — гарантируем, что opacity:0 отрисован до начала перехода в opacity:1
-                requestAnimationFrame(function () {
+                getFadeEl(video).style.opacity = '0';
+
+                const playAndFadeIn = function () {
+                    video.play().catch(function () {});
+                    // Двойной rAF — гарантируем, что opacity:0 отрисован до перехода в opacity:1
                     requestAnimationFrame(function () {
-                        fadeIn(video);
+                        requestAnimationFrame(function () {
+                            fadeIn(video);
+                        });
                     });
-                });
+                };
+
+                // Ждём фактического перехода на начало ролика (seeked),
+                // чтобы под затуханием не мелькнул старый кадр.
+                if (video.readyState >= 1) {
+                    video.addEventListener('seeked', function onSeeked() {
+                        video.removeEventListener('seeked', onSeeked);
+                        playAndFadeIn();
+                    });
+                    video.currentTime = 0;
+                } else {
+                    video.currentTime = 0;
+                    playAndFadeIn();
+                }
             } else {
                 fadeOutThenPause(video);
             }
