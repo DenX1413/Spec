@@ -609,7 +609,7 @@ body {
     display: flex;
     align-items: stretch;
     width: 100%;
-    background: var(--bg-base);
+    background: transparent;
 }
 
 /* --- Левая колонка: большой логотип, 1/4 рабочей области --- */
@@ -623,10 +623,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background:
-        radial-gradient(circle at 50% 42%, rgba(54, 82, 217, 0.4), transparent 60%),
-        radial-gradient(circle at 50% 62%, rgba(229, 0, 12, 0.3), transparent 65%),
-        rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.35);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     padding: 3rem 2rem;
