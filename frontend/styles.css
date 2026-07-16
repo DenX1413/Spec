@@ -648,12 +648,20 @@ body {
 }
 
 /* --- Плавающий навбар (виден поверх всех 4 блоков видео) --- */
+/* .hero-nav сам по себе не занимает места в потоке (height:0), чтобы не сдвигать видео вниз — */
+/* вся раскладка и отступы живут во вложенном .hero-nav-inner, который просто накладывается сверху. */
 .hero-nav {
     position: sticky;
     top: 0;
     left: 0;
     right: 0;
     z-index: 50;
+    height: 0;
+    overflow: visible;
+}
+
+.hero-nav-inner {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -712,14 +720,14 @@ body {
 }
 
 @media (min-width: 768px) {
-    .hero-nav {
+    .hero-nav-inner {
         padding: 1.5rem 2.5rem 0;
     }
 }
 
 /* Десктоп (боковая панель с лого видна): центр-меню центрируется по колонке 3/4, а не по всей странице */
 @media (min-width: 901px) {
-    .hero-nav {
+    .hero-nav-inner {
         justify-content: flex-end;
     }
     .hero-nav-center {
@@ -859,7 +867,7 @@ body {
         padding: 0.85rem 1.05rem;
     }
 
-    .hero-nav {
+    .hero-nav-inner {
         padding: 0.9rem 0.9rem 0;
     }
 }
@@ -877,7 +885,7 @@ body {
         flex: 1 1 auto;
     }
 
-    .hero-nav {
+    .hero-nav-inner {
         flex-wrap: nowrap;
     }
 
@@ -972,3 +980,19 @@ body {
 /* --- Блок 4: Этапы ремонта --- */
 #block-steps .hero-title { top: 18%; }
 #block-steps .hero-list { top: 44%; }
+
+/* На мобильных плавающий логотип-бейдж крупный и лежит поверх видео —
+   опускаем заголовок и список ниже, чтобы не перекрывались с ним */
+@media (max-width: 900px) {
+    #block-trust .hero-title { top: 26%; }
+    #block-trust .hero-list { top: 54%; }
+
+    #block-diagnostics .hero-title { top: 26%; }
+    #block-diagnostics .hero-list { top: 52%; }
+
+    #block-engines .hero-title { top: 26%; }
+    #block-engines .hero-list { top: 52%; }
+
+    #block-steps .hero-title { top: 26%; }
+    #block-steps .hero-list { top: 52%; }
+}
