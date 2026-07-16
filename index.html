@@ -4,6 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <!-- Применяем сохранённую тему до отрисовки страницы, чтобы не было мигания -->
+    <script>
+        (function () {
+            try {
+                if (localStorage.getItem('theme') === 'light') {
+                    document.documentElement.setAttribute('data-theme', 'light');
+                }
+            } catch (e) {}
+        })();
+    </script>
     <title>СПЕЦТЕХНИК - Ремонт квадроциклов, снегоходов, лодок и спецтехники в Томске</title>
     <meta name="description" content="ООО СПЕЦТЕХНИК - профессиональный ремонт и сервисное обслуживание спецтехники в Томске. Квадроциклы, снегоходы, вездеходы, моторные лодки, газонокосилки. Бесплатная диагностика, выезд мастера.">
     <meta name="keywords" content="ремонт квадроциклов Томск, ремонт снегоходов, сервис лодочных моторов, ремонт вездеходов, заточка газонокосилок, СПЕЦТЕХНИК, мотосервис Томск, ремонт спецтехники, диагностика двигателей">
@@ -24,7 +34,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <!-- CSS стили -->
-    <link rel="stylesheet" href="frontend/styles.css?v=17">
+    <link rel="stylesheet" href="frontend/styles.css?v=18">
 </head>
 
 <body>
@@ -44,6 +54,9 @@
                     <a href="#block-engines">двигатели</a>
                     <a href="#block-steps">этапы</a>
                 </div>
+                <button type="button" class="theme-toggle" id="themeToggle" aria-label="Переключить светлую/тёмную тему">
+                    <i class="fas fa-moon"></i>
+                </button>
                 <a href="#request-form" class="hero-nav-btn"><i class="fas fa-paper-plane"></i><span class="hero-nav-btn-text">оставить заявку</span></a>
             </div>
         </nav>
@@ -224,6 +237,7 @@
     <script src="backend/send-form.js?v=2"></script>
     <script src="backend/scroll-to-top.js?v=2"></script>
     <script src="backend/video-hero.js?v=3"></script>
+    <script src="backend/theme-toggle.js?v=1"></script>
 </body>
 
 </html>
