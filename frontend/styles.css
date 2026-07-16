@@ -708,8 +708,19 @@ body {
     .hero-nav {
         padding: 1.5rem 2.5rem 0;
     }
+}
+
+/* Десктоп (боковая панель с лого видна): центр-меню центрируется по колонке 3/4, а не по всей странице */
+@media (min-width: 901px) {
+    .hero-nav {
+        justify-content: flex-end;
+    }
     .hero-nav-center {
         display: flex;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
     }
 }
 
@@ -885,6 +896,11 @@ body {
         justify-content: center;
         font-size: 1.15rem;
         flex-shrink: 0;
+    }
+
+    /* У иконки самолётика визуальный центр смещён вправо из-за формы глифа — компенсируем сдвигом влево */
+    .hero-nav-btn i {
+        transform: translateX(-1.5px);
     }
 
     .hero-nav-btn-text {
