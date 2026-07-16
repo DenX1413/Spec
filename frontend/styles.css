@@ -695,6 +695,9 @@ body {
     transition: background 0.2s ease;
     white-space: nowrap;
     flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
 }
 
 .hero-nav-btn:hover {
@@ -857,8 +860,7 @@ body {
     }
 
     .hero-nav {
-        flex-wrap: wrap;
-        row-gap: 0.75rem;
+        flex-wrap: nowrap;
     }
 
     .hero-nav-logo {
@@ -872,6 +874,21 @@ body {
         -webkit-backdrop-filter: blur(8px);
         border-radius: 50%;
         padding: 6px;
+    }
+
+    /* Кнопка сжимается до круглой иконки, чтобы остаться в одном ряду с большим лого */
+    .hero-nav-btn {
+        width: 52px;
+        height: 52px;
+        padding: 0;
+        border-radius: 50%;
+        justify-content: center;
+        font-size: 1.15rem;
+        flex-shrink: 0;
+    }
+
+    .hero-nav-btn-text {
+        display: none;
     }
 }
 
