@@ -619,7 +619,10 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--bg-base);
+    background:
+        radial-gradient(circle at 50% 42%, rgba(54, 82, 217, 0.16), transparent 60%),
+        radial-gradient(circle at 50% 60%, rgba(229, 0, 12, 0.09), transparent 65%),
+        var(--bg-base);
     padding: 3rem 2rem;
     border-right: 2px solid transparent;
     border-image: linear-gradient(180deg, var(--brand-red), var(--brand-blue)) 1;
@@ -631,6 +634,7 @@ body {
     height: auto;
     object-fit: contain;
     display: block;
+    filter: drop-shadow(0 12px 34px rgba(0, 0, 0, 0.55));
 }
 
 /* --- Правая колонка: 4 видео-блока, 3/4 рабочей области --- */
@@ -883,9 +887,10 @@ body {
         width: 200px;
         object-fit: cover;
         flex-shrink: 0;
-        background: rgba(0, 0, 0, 0.5);
+        background: radial-gradient(circle, rgba(54, 82, 217, 0.35), rgba(0, 0, 0, 0.55) 70%);
         backdrop-filter: blur(8px);
         -webkit-backdrop-filter: blur(8px);
+        filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.5));
         border-radius: 50%;
         padding: 6px;
     }
