@@ -4,11 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
-    <!-- Применяем сохранённую тему до отрисовки страницы, чтобы не было мигания -->
+    <!-- Применяем тему до отрисовки страницы, чтобы не было мигания.
+         Приоритет: явный выбор пользователя (localStorage) > системная тема устройства > тёмная по умолчанию. -->
     <script>
         (function () {
             try {
-                if (localStorage.getItem('theme') === 'light') {
+                var saved = localStorage.getItem('theme');
+                var theme = saved;
+                if (!theme) {
+                    theme = (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches)
+                        ? 'light'
+                        : 'dark';
+                }
+                if (theme === 'light') {
                     document.documentElement.setAttribute('data-theme', 'light');
                 }
             } catch (e) {}
@@ -237,7 +245,7 @@
     <script src="backend/send-form.js?v=2"></script>
     <script src="backend/scroll-to-top.js?v=2"></script>
     <script src="backend/video-hero.js?v=3"></script>
-    <script src="backend/theme-toggle.js?v=1"></script>
+    <script src="backend/theme-toggle.js?v=2"></script>
 </body>
 
 </html>
