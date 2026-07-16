@@ -623,9 +623,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(0, 0, 0, 0.35);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    background: transparent;
     padding: 3rem 2rem;
     border-right: 2px solid transparent;
     border-image: linear-gradient(180deg, var(--brand-red), var(--brand-blue)) 1;
