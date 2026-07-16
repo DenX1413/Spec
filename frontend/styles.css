@@ -757,7 +757,7 @@ body {
     height: 46px;
     min-width: 46px;
     border-radius: 50%;
-    border: none;
+    border: 1px solid var(--border-color);
     background: var(--toggle-bg);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -768,6 +768,7 @@ body {
     justify-content: center;
     cursor: pointer;
     flex-shrink: 0;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.28);
     transition: background 0.2s ease, color 0.2s ease;
 }
 
@@ -980,7 +981,7 @@ body {
     }
 
     /* "Оставить заявку" уходит из навбара в плавающую кнопку в правом нижнем углу — */
-    /* на её месте в ряду остаётся переключатель темы, рядом с большим лого */
+    /* скрывается через JS, когда пользователь долистал до самой формы заявки (не нужна там) */
     .hero-nav-btn {
         position: fixed;
         bottom: 20px;
@@ -993,14 +994,26 @@ body {
         font-size: 1.3rem;
         flex-shrink: 0;
         z-index: 999;
+        transition: background 0.2s ease, color 0.2s ease, opacity 0.25s ease, transform 0.25s ease;
     }
 
-    /* Кнопка темы крупнее на мобильных — теперь на видном месте в навбаре */
+    .hero-nav-btn.cta-hidden {
+        opacity: 0;
+        transform: scale(0.7);
+        pointer-events: none;
+    }
+
+    /* Кнопка темы крупнее и всегда доступна на мобильных — закреплена в углу независимо от скролла, */
+    /* не пропадает вместе с навбаром после того, как страница пролистана дальше геро-блока */
     .theme-toggle {
+        position: fixed;
+        top: 16px;
+        right: 16px;
         width: 56px;
         height: 56px;
         min-width: 56px;
         font-size: 1.2rem;
+        z-index: 999;
     }
 
     /* У иконки самолётика визуальный центр смещён вправо из-за формы глифа — компенсируем сдвигом влево */
