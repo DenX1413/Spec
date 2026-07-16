@@ -29,7 +29,11 @@ html, body {
 
 body {
     font-family: 'Readex Pro', system-ui, -apple-system, sans-serif;
-    background: var(--bg-base);
+    background:
+        radial-gradient(circle at 50% 20%, rgba(54, 82, 217, 0.16), transparent 55%),
+        radial-gradient(circle at 50% 85%, rgba(229, 0, 12, 0.12), transparent 60%),
+        var(--bg-base);
+    background-attachment: fixed;
     color: #fff;
     line-height: 1.5;
     overflow-x: hidden;
