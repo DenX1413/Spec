@@ -29,6 +29,15 @@
 
     /* Карта Яндекса: затемняем светлую подложку под тёмную тему */
     --map-filter: grayscale(0.3) invert(0.92) contrast(0.9);
+
+    /* Навбар и переключатель темы (плавают поверх видео в обеих темах) */
+    --nav-pill-bg: rgba(23, 23, 23, 0.9);
+    --nav-link-color: #d4d4d4;
+    --nav-link-hover: #7d92ff;
+    --toggle-bg: rgba(23, 23, 23, 0.9);
+    --toggle-color: #fff;
+    --toggle-hover-bg: rgba(40, 40, 40, 0.95);
+    --toggle-hover-color: #ffd166;
 }
 
 /* ========== СВЕТЛАЯ ТЕМА ========== */
@@ -50,6 +59,14 @@
     --page-glow-2: rgba(229, 0, 12, 0.06);
 
     --map-filter: none;
+
+    --nav-pill-bg: rgba(255, 255, 255, 0.88);
+    --nav-link-color: #33363c;
+    --nav-link-hover: #253aa8;
+    --toggle-bg: rgba(255, 255, 255, 0.92);
+    --toggle-color: #1b1d22;
+    --toggle-hover-bg: #ffffff;
+    --toggle-hover-color: #b8000a;
 }
 
 html, body {
@@ -615,9 +632,10 @@ body {
     transform: translateY(-4px);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
+    /* Сдвинута выше, чтобы не перекрываться с плавающей кнопкой "оставить заявку" в углу */
     .scroll-top-btn {
-        bottom: 20px;
+        bottom: 90px;
         right: 20px;
         width: 52px;
         height: 52px;
@@ -710,15 +728,16 @@ body {
     display: none;
     align-items: center;
     gap: 0.15rem;
-    background: rgba(23, 23, 23, 0.9);
+    background: var(--nav-pill-bg);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border-radius: 999px;
     padding: 0.6rem 0.7rem;
+    transition: background 0.25s ease;
 }
 
 .hero-nav-center a {
-    color: #d4d4d4;
+    color: var(--nav-link-color);
     text-decoration: none;
     font-size: 1.05rem;
     padding: 0.7rem 1.5rem;
@@ -728,21 +747,21 @@ body {
 }
 
 .hero-nav-center a:hover {
-    color: #7d92ff;
+    color: var(--nav-link-hover);
 }
 
 /* Переключатель светлой/тёмной темы — плавающая круглая кнопка в навбаре, */
-/* всегда тёмная/полупрозрачная, т.к. лежит поверх видео независимо от темы */
+/* меняет свой вид вместе с темой (тёмная в тёмной теме, светлая в светлой) */
 .theme-toggle {
     width: 46px;
     height: 46px;
     min-width: 46px;
     border-radius: 50%;
     border: none;
-    background: rgba(23, 23, 23, 0.9);
+    background: var(--toggle-bg);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    color: #fff;
+    color: var(--toggle-color);
     font-size: 1.05rem;
     display: flex;
     align-items: center;
@@ -753,8 +772,8 @@ body {
 }
 
 .theme-toggle:hover {
-    background: rgba(40, 40, 40, 0.95);
-    color: #ffd166;
+    background: var(--toggle-hover-bg);
+    color: var(--toggle-hover-color);
 }
 
 .hero-nav-btn {
@@ -960,22 +979,28 @@ body {
         padding: 6px;
     }
 
-    /* Кнопка сжимается до круглой иконки, чтобы остаться в одном ряду с большим лого */
+    /* "Оставить заявку" уходит из навбара в плавающую кнопку в правом нижнем углу — */
+    /* на её месте в ряду остаётся переключатель темы, рядом с большим лого */
     .hero-nav-btn {
-        width: 52px;
-        height: 52px;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 58px;
+        height: 58px;
         padding: 0;
         border-radius: 50%;
         justify-content: center;
-        font-size: 1.15rem;
+        font-size: 1.3rem;
         flex-shrink: 0;
+        z-index: 999;
     }
 
+    /* Кнопка темы крупнее на мобильных — теперь на видном месте в навбаре */
     .theme-toggle {
-        width: 42px;
-        height: 42px;
-        min-width: 42px;
-        font-size: 0.95rem;
+        width: 56px;
+        height: 56px;
+        min-width: 56px;
+        font-size: 1.2rem;
     }
 
     /* У иконки самолётика визуальный центр смещён вправо из-за формы глифа — компенсируем сдвигом влево */
