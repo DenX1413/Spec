@@ -6,45 +6,7 @@
 }
 
 :root {
-    --text-main: #fff;
-    --text-dim: rgba(255, 255, 255, 0.7);
-    --text-faint: rgba(255, 255, 255, 0.45);
-    --border-color: rgba(255, 255, 255, 0.14);
-    --card-bg: #0d0d0d;
-    --input-bg: #141414;
-    --gray-text: rgba(255, 255, 255, 0.6);
-
-    /* Цвета логотипа: красный + синий (одинаковые в обеих темах) */
-    --brand-red: #e5000c;
-    --brand-red-dark: #b8000a;
-    --brand-blue: #3652d9;
-    --brand-blue-dark: #253aa8;
-
-    /* Фон чуть светлее чистого чёрного */
-    --bg-base: #121214;
-
-    /* Фон градиента страницы (тёмная тема) */
-    --page-glow-1: rgba(54, 82, 217, 0.16);
-    --page-glow-2: rgba(229, 0, 12, 0.12);
-
-    /* Карта Яндекса: затемняем светлую подложку под тёмную тему */
-    --map-filter: grayscale(0.3) invert(0.92) contrast(0.9);
-
-    /* Навбар и переключатель темы (плавают поверх видео в обеих темах) */
-    --nav-pill-bg: rgba(23, 23, 23, 0.9);
-    --nav-link-color: #d4d4d4;
-    --nav-link-hover: #7d92ff;
-    --toggle-bg: rgba(23, 23, 23, 0.9);
-    --toggle-color: #fff;
-    --toggle-hover-bg: rgba(40, 40, 40, 0.95);
-    --toggle-hover-color: #ffd166;
-}
-
-/* ========== СВЕТЛАЯ ТЕМА ========== */
-/* Видео-геро (шапка с 4 видео-блоками) намеренно остаётся тёмным в обеих темах —
-   это фотографический/видео-контент, тёмная подложка нужна для читаемости текста
-   поверх видео независимо от темы оформления. Переключается только "бумажная" часть сайта. */
-:root[data-theme="light"] {
+    /* Единая (светлая) тема сайта — переключение тем убрано */
     --text-main: #14161a;
     --text-dim: rgba(20, 22, 26, 0.68);
     --text-faint: rgba(20, 22, 26, 0.45);
@@ -53,20 +15,25 @@
     --input-bg: #f2f3f5;
     --gray-text: rgba(20, 22, 26, 0.55);
 
+    /* Цвета логотипа: красный + синий */
+    --brand-red: #e5000c;
+    --brand-red-dark: #b8000a;
+    --brand-blue: #3652d9;
+    --brand-blue-dark: #253aa8;
+
     --bg-base: #f4f5f7;
 
+    /* Фон градиента страницы */
     --page-glow-1: rgba(54, 82, 217, 0.08);
     --page-glow-2: rgba(229, 0, 12, 0.06);
 
+    /* Карта Яндекса показывается как есть, без инверсии */
     --map-filter: none;
 
-    --nav-pill-bg: rgba(255, 255, 255, 0.88);
-    --nav-link-color: #33363c;
-    --nav-link-hover: #253aa8;
-    --toggle-bg: rgba(255, 255, 255, 0.92);
-    --toggle-color: #1b1d22;
-    --toggle-hover-bg: #ffffff;
-    --toggle-hover-color: #b8000a;
+    /* Навбар (плавает поверх видео, остаётся тёмным для читаемости независимо от фона страницы) */
+    --nav-pill-bg: rgba(23, 23, 23, 0.9);
+    --nav-link-color: #d4d4d4;
+    --nav-link-hover: #7d92ff;
 }
 
 html, body {
@@ -672,14 +639,14 @@ body {
     align-items: center;
     justify-content: center;
     background: transparent;
-    padding: 3rem 2rem;
+    padding: 1.5rem 0.75rem;
     border-right: 2px solid transparent;
     border-image: linear-gradient(180deg, var(--brand-red), var(--brand-blue)) 1;
 }
 
 .hero-brand-logo {
     width: 100%;
-    max-width: 380px;
+    max-width: 760px;
     height: auto;
     object-fit: contain;
     display: block;
@@ -748,33 +715,6 @@ body {
 
 .hero-nav-center a:hover {
     color: var(--nav-link-hover);
-}
-
-/* Переключатель светлой/тёмной темы — плавающая круглая кнопка в навбаре, */
-/* меняет свой вид вместе с темой (тёмная в тёмной теме, светлая в светлой) */
-.theme-toggle {
-    width: 46px;
-    height: 46px;
-    min-width: 46px;
-    border-radius: 50%;
-    border: 1px solid var(--border-color);
-    background: var(--toggle-bg);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    color: var(--toggle-color);
-    font-size: 1.05rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    flex-shrink: 0;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.28);
-    transition: background 0.2s ease, color 0.2s ease;
-}
-
-.theme-toggle:hover {
-    background: var(--toggle-hover-bg);
-    color: var(--toggle-hover-color);
 }
 
 .hero-nav-btn {
@@ -969,11 +909,11 @@ body {
 
     .hero-nav-logo {
         display: block;
-        height: 200px;
-        width: 200px;
+        height: 300px;
+        width: 300px;
         object-fit: cover;
         flex-shrink: 0;
-        background: rgba(0, 0, 0, 0.5);
+        background: rgba(255, 255, 255, 0.5);
         backdrop-filter: blur(8px);
         -webkit-backdrop-filter: blur(8px);
         border-radius: 50%;
@@ -1003,19 +943,6 @@ body {
         pointer-events: none;
     }
 
-    /* Кнопка темы крупнее и всегда доступна на мобильных — закреплена в углу независимо от скролла, */
-    /* не пропадает вместе с навбаром после того, как страница пролистана дальше геро-блока */
-    .theme-toggle {
-        position: fixed;
-        top: 16px;
-        right: 16px;
-        width: 56px;
-        height: 56px;
-        min-width: 56px;
-        font-size: 1.2rem;
-        z-index: 999;
-    }
-
     /* У иконки самолётика визуальный центр смещён вправо из-за формы глифа — компенсируем сдвигом влево */
     .hero-nav-btn i {
         transform: translateX(-1.5px);
@@ -1028,8 +955,8 @@ body {
 
 @media (max-width: 480px) {
     .hero-nav-logo {
-        height: 160px;
-        width: 160px;
+        height: 240px;
+        width: 240px;
     }
 }
 
@@ -1087,15 +1014,15 @@ body {
 /* На мобильных плавающий логотип-бейдж крупный и лежит поверх видео —
    опускаем заголовок и список ниже, чтобы не перекрывались с ним */
 @media (max-width: 900px) {
-    #block-trust .hero-title { top: 26%; }
-    #block-trust .hero-list { top: 54%; }
+    #block-trust .hero-title { top: 39%; }
+    #block-trust .hero-list { top: 63%; }
 
-    #block-diagnostics .hero-title { top: 26%; }
-    #block-diagnostics .hero-list { top: 52%; }
+    #block-diagnostics .hero-title { top: 39%; }
+    #block-diagnostics .hero-list { top: 61%; }
 
-    #block-engines .hero-title { top: 26%; }
-    #block-engines .hero-list { top: 52%; }
+    #block-engines .hero-title { top: 39%; }
+    #block-engines .hero-list { top: 61%; }
 
-    #block-steps .hero-title { top: 26%; }
-    #block-steps .hero-list { top: 52%; }
+    #block-steps .hero-title { top: 39%; }
+    #block-steps .hero-list { top: 61%; }
 }
