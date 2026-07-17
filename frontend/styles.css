@@ -905,19 +905,21 @@ body {
 
     .hero-nav-inner {
         flex-wrap: nowrap;
+        justify-content: center;
     }
 
     .hero-nav-logo {
         display: block;
         height: 300px;
         width: 300px;
-        object-fit: cover;
+        object-fit: contain;
         flex-shrink: 0;
         background: rgba(255, 255, 255, 0.5);
         backdrop-filter: blur(8px);
         -webkit-backdrop-filter: blur(8px);
-        border-radius: 50%;
-        padding: 6px;
+        border-radius: 20px;
+        padding: 10px;
+        margin: 0 auto;
     }
 
     /* "Оставить заявку" уходит из навбара в плавающую кнопку в правом нижнем углу — */
