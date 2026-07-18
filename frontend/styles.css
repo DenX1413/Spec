@@ -639,7 +639,7 @@ body {
     align-items: center;
     justify-content: center;
     background: transparent;
-    padding: 1.5rem 0.75rem;
+    padding: 0.5rem;
     border-right: 2px solid transparent;
     border-image: linear-gradient(180deg, var(--brand-red), var(--brand-blue)) 1;
 }
