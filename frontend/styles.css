@@ -911,7 +911,7 @@ body {
     .hero-nav-logo {
         display: block;
         height: 300px;
-        width: 300px;
+        width: 224px;
         object-fit: contain;
         flex-shrink: 0;
         background: rgba(255, 255, 255, 0.5);
@@ -958,7 +958,7 @@ body {
 @media (max-width: 480px) {
     .hero-nav-logo {
         height: 240px;
-        width: 240px;
+        width: 180px;
     }
 }
 
