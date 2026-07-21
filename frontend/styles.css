@@ -717,6 +717,33 @@ body {
     color: var(--nav-link-hover);
 }
 
+/* Продублированный номер телефона рядом с навбаром (виден с планшетов и выше) */
+.hero-nav-phone {
+    display: none;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--nav-pill-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 999px;
+    padding: 0.7rem 1.2rem;
+    color: var(--nav-link-color);
+    text-decoration: none;
+    font-size: 0.98rem;
+    font-weight: 500;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: color 0.2s ease, background 0.25s ease;
+}
+
+.hero-nav-phone i {
+    color: var(--brand-blue);
+}
+
+.hero-nav-phone:hover {
+    color: var(--nav-link-hover);
+}
+
 .hero-nav-btn {
     background: var(--brand-red);
     color: #fff;
@@ -754,6 +781,12 @@ body {
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);
+    }
+    .hero-nav-phone {
+        display: flex;
+        /* Прижимаем к левому краю (там, где на десктопе скрыт лого), чтобы номер */
+        /* не пересекался с центрированным меню — оно остаётся строго по центру колонки */
+        margin-right: auto;
     }
 }
 
