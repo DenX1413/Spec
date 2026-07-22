@@ -168,10 +168,8 @@
                 <h3>Запись в сервис</h3>
                 <p>Опишите проблему или укажите желаемую услугу. Мастер перезвонит для уточнения деталей и записи в удобное время.</p>
 
-                <form class="simple-form" action="https://formsubmit.co/ajax/SpectehniK-320303@yandex.ru" method="POST">
-                    <input type="hidden" name="_subject" value="Новая заявка с сайта СПЕЦТЕХНИК">
-                    <input type="hidden" name="_template" value="table">
-                    <input type="hidden" name="_captcha" value="false">
+                <form class="simple-form" action="backend/send-form.php" method="POST">
+                    <input type="text" name="website" style="position:absolute; left:-9999px; width:1px; height:1px; opacity:0;" tabindex="-1" autocomplete="off" aria-hidden="true">
                     <input type="text" name="name" placeholder="Ваше имя" required maxlength="25">
                     <input type="tel" name="phone" placeholder="Ваш телефон" required>
                     <textarea name="message" placeholder="Марка техники, неисправность, пожелания" rows="3" maxlength="500"></textarea>
